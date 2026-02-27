@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 Наурыз Шақырту</title>
+
+<style>
+body{
+margin:0;
+font-family:cursive;
+background:linear-gradient(to right,#ff0000,#ff4d6d);
+color:white;
+text-align:center;
+}
+
+.page{
+padding:40px 20px;
+}
+
+h1{
+font-size:28px;
+text-shadow:2px 2px 10px black;
+}
+
+.balloons{
+font-size:30px;
+animation:float 2s infinite alternate;
+}
+
+@keyframes float{
+from{transform:translateY(0);}
+to{transform:translateY(-15px);}
+}
+
+button{
+padding:15px;
+margin:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+background:white;
+color:red;
+}
+
+.info{
+font-size:20px;
+background:rgba(0,0,0,0.4);
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page" id="page1">
+<h1>💖 Мейірім иелеріне шақырту 💖</h1>
+
+<div class="balloons">🎈🎈🎈🎈🎈</div>
+
+<p>
+Ана – өмірдің гүлі,  
+жүректегі нұры.  
+Сіздерді 8 наурыз мерекесіне  
+шақырамыз!
+</p>
+
+<button onclick="showPage2()">📍 Ақпаратты көру</button>
+</div>
+
+
+<div class="page" id="page2" style="display:none;">
+<h1>🌹 Мереке Ақпараты 🌹</h1>
+
+<div class="info">
+📅 Күні: 3 наурыз<br>
+⏰ Уақыты: 17:30<br>
+📍 Өтетін орны: Жатақхана
+</div>
+
+<button onclick="showPage1()">⬅ Артқа қайту</button>
+</div>
+
+
+<script>
+function showPage2(){
+document.getElementById("page1").style.display="none";
+document.getElementById("page2").style.display="block";
+}
+
+function showPage1(){
+document.getElementById("page2").style.display="none";
+document.getElementById("page1").style.display="block";
+}
+</script>
+
+</body>
+</html>
