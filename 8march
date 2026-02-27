@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 Наурыз Шақырту</title>
+<style>
+body {
+    margin:0;
+    font-family: 'Brush Script MT', cursive;
+    background: linear-gradient(to right,#ff0000,#ff4d6d);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+.page {
+    padding:40px 20px;
+    min-height:100vh;
+    position:relative;
+}
+
+h1 {
+    font-size:32px;
+    text-shadow: 3px 3px 10px black;
+    margin-bottom:20px;
+}
+
+.balloon {
+    position:absolute;
+    font-size:30px;
+    animation: float 5s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) translateX(0);}
+    50% { transform: translateY(50vh) translateX(20px);}
+    100% { transform: translateY(-10vh) translateX(-20px);}
+}
+
+.poem {
+    font-size:20px;
+    margin:20px auto;
+    max-width:90%;
+}
+
+button {
+    padding:15px 25px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    background:white;
+    color:red;
+    transition:0.3s;
+}
+
+button:hover { background:black; color:white; }
+
+.info {
+    font-size:20px;
+    background:rgba(0,0,0,0.4);
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+audio { display:none; }
+
+/* Адаптив телефон үшін */
+@media (max-width:600px){
+    h1{ font-size:26px; }
+    .poem{ font-size:16px; }
+    .info{ font-size:18px; }
+    button{ font-size:14px; width:90%; }
+    .balloon{ font-size:24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Бірінші бет -->
+<div class="page" id="page1">
+<h1>💖 Мейірім иелеріне шақырту 💖</h1>
+
+<div class="poem">
+Ана – өмірдің гүлі,<br>
+Жүректегі нұры.<br>
+Сіздерді 8 наурыз мерекесіне<br>
+шақырамыз!
+</div>
+
+<button onclick="toggleMusic()">🎵 Әнді ойнату / тоқтату</button>
+<button onclick="showPage2()">📍 Ақпаратты көру</button>
+</div>
+
+<!-- Екінші бет -->
+<div class="page" id="page2" style="display:none;">
+<h1>🌹 Мереке Ақпараты 🌹</h1>
+
+<div class="info">
+📅 Күні: 3 наурыз<br>
+⏰ Уақыты: 17:30<br>
+📍 Өтетін орны: Жатақхана
+</div>
+
+<button onclick="showPage1()">⬅ Артқа қайту</button>
+</div>
+
+<!-- Музыка (қойғың келсе телефоннан mp3 қосасың) -->
+<audio id="music" loop src="music.mp3"></audio>
+
+<script>
+function showPage2(){
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+}
+
+function showPage1(){
+    document.getElementById("page2").style.display="none";
+    document.getElementById("page1").style.display="block";
+}
+
+function toggleMusic(){
+    var m = document.getElementById("music");
+    if(m.paused){ m.play(); } else { m.pause(); }
+}
+
+// Шариктерді жасау
+for(let i=0;i<10;i++){
+    let b=document.createElement("div");
+    b.className="balloon";
+    b.innerHTML="🎈";
+    b.style.left=Math.random()*90+"vw";
+    b.style.animationDuration=(3+Math.random()*5)+"s";
+    b.style.fontSize=(20+Math.random()*20)+"px";
+    document.body.appendChild(b);
+}
+</script>
+
+</body>
+</html>
